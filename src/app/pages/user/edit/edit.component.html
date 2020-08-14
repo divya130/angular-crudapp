@@ -100,7 +100,7 @@
             </div>
           
         </div>
-        <div class=" card-footer">
+        <div class=" card-footer bg-white">
           <button class=" btn btn-fill btn-danger float-right" type="submit">Update</button>
         </div>
       </form>
@@ -122,7 +122,7 @@
                 [src]="Userdetails?.data?.avatar"
               />
 
-              <h5 class=" title">Mike Andrew</h5>
+              <h5 class=" title">{{Userdetails?.data?.first_name +' '+ Userdetails?.data?.last_name }}</h5>
             </a>
             <p class=" description">{{Userdetails?.ad?.company}}</p>
             <p > <a [href]="Userdetails?.ad?.url" target="_blank">{{Userdetails?.ad?.url}}</a></p>

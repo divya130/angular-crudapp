@@ -20,6 +20,9 @@ color: white;
 .clr_gren{
     color: green;
 }
+.clr_blue {
+    color: blue;
+}
 .add-btn{
     position: fixed;
     right: 50px;

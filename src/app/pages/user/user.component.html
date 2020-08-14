@@ -1,69 +1,70 @@
 <div class=" content">
-<div class="container">
-  <div class="container pad-t-70">
-    <!-- filter section starts -->
-    <div class="filter-wrapper mar-row-t-b">
-      <!-- <form [formGroup]="filterForm">
+  <div class="container">
+    <div class="container pad-t-70">
+      <!-- filter section starts -->
+      <div class="filter-wrapper mar-row-t-b">
+        <!-- <form [formGroup]="filterForm">
         <div class="row">
 
   
         </div>
       </form> -->
-    </div>
-    <!-- filter section ends -->
-  </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" class="bg_clr">#</th>
-        <th scope="col" class="bg_clr">Name</th>
-        <th scope="col" class="bg_clr">Email</th>
-        <th scope="col" class="bg_clr">Action</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let user of users ;let i=index">
-        <th scope="row"> {{((page-1)*paginationDetails.per_page)+(i+1)}}</th>
-        <td> <img class="img-radius" [src]="user.avatar" /> &nbsp; {{user.first_name +' ' + user.last_name}} </td>
-        <td>{{user.email }}</td>
-        <td class="disp_flex">
-          <i class="fa fa-pencil clr_gren padd-5" [routerLink]="['/user/edit',user.id]" aria-hidden="true"></i>
-          <i class="fa fa-trash clr_red padd-5" (click)="deleteUser(user.id)" aria-hidden="true"></i>
-
-</td>
-      </tr>
-
-    </tbody>
-  </table>
-  <ng-container *ngIf="users.length === 0">
-    <div class="p-l-r-25">
-      <p class="no-data">No record found</p>
-    </div>
-  </ng-container>
-  <div class="row">
-    <div class="col-12 float-left">
-      <div class="col-lg-6 col-12 float-left">
-        Showing {{paginationDetails.per_page}} out of {{paginationDetails.total}} entries
       </div>
-      <!-- pagination starts -->
-      <div class="col-lg-6 col-12 float-left ">
-        <pagination class="float-right" [totalItems]="paginationDetails.total" [(ngModel)]="currentPage"
-          (pageChanged)="pageChanged($event)" [boundaryLinks]="true" previousText="&lsaquo;" nextText="&rsaquo;" 
-          firstText="&laquo;" lastText="&raquo;"></pagination>
-      </div>
-      <!-- pagination ends -->
+      <!-- filter section ends -->
     </div>
 
-  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="bg_clr">#</th>
+          <th scope="col" class="bg_clr">Name</th>
+          <th scope="col" class="bg_clr">Email</th>
+          <th scope="col" class="bg_clr">Action</th>
+        </tr>
+      </thead>
 
-  <div>
-    <!-- [routerLink]="['/user/create']" -->
-    <button class="add-btn" (click)="openModal()" >
-      <i class="fa fa-plus" aria-hidden="true"></i>
+      <tbody>
+        <tr *ngFor="let user of users ;let i=index">
+          <th scope="row"> {{((page-1)*paginationDetails.per_page)+(i+1)}}</th>
+          <td> <img class="img-radius" [src]="user.avatar" /> &nbsp; {{user.first_name +' ' + user.last_name}} </td>
+          <td>{{user.email }}</td>
+          <td class="disp_flex">
+            <i class="fa fa-pencil clr_gren padd-5" [routerLink]="['/user/edit',user.id]" aria-hidden="true"></i>
+            <i class="fa fa-trash clr_red padd-5" (click)="deleteUser(user.id)" aria-hidden="true"></i>
 
-    </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <ng-container *ngIf="users.length === 0">
+      <div class="p-l-r-25">
+        <p class="no-data">No record found</p>
+      </div>
+    </ng-container>
+    <div class="row">
+      <div class="col-12 float-left">
+        <div class="col-lg-6 col-12 float-left">
+          Showing <span class="clr_blue">{{paginationDetails.per_page}}</span> out of <span class="clr_blue">
+            {{paginationDetails.total}} </span> entries
+        </div>
+        <!-- pagination starts -->
+        <div class="col-lg-6 col-12 float-left ">
+          <pagination class="float-right" [totalItems]="paginationDetails.total" [(ngModel)]="currentPage"
+            (pageChanged)="pageChanged($event)" [boundaryLinks]="true" previousText="&lsaquo;" nextText="&rsaquo;"
+            firstText="&laquo;" lastText="&raquo;"></pagination>
+        </div>
+        <!-- pagination ends -->
+      </div>
+
+    </div>
+
+    <div>
+      <!-- [routerLink]="['/user/create']" -->
+      <button class="add-btn" (click)="openModal()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+
+      </button>
+    </div>
   </div>
-</div>
 </div>
