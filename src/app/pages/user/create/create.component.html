@@ -1,0 +1,88 @@
+
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Create User</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 no-pad">
+            <form [formGroup]="userCreateForm" (ngSubmit)="onSubmit()">
+              <div class="col-12 no-pad">
+
+             
+                <div class="form-group col-12 col-lg-6 float-left">
+                    <label>First Name</label>
+                    <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.first_name.errors }" />
+                    <div *ngIf="submitted && usr.first_name.errors" class="invalid-feedback">
+                        <div *ngIf="usr.first_name.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-lg-6 float-left">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="last_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.last_name.errors }" />
+                    <div *ngIf="submitted && usr.last_name.errors" class="invalid-feedback">
+                        <div *ngIf="usr.last_name.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-lg-6 float-left">
+                  <label>User Name</label>
+                  <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.userName.errors }" />
+                  <div *ngIf="submitted && usr.userName.errors" class="invalid-feedback">
+                      <div *ngIf="usr.userName.errors.required">User Name is required</div>
+                  </div>
+              </div>
+                <div class="form-group col-12 col-lg-6 float-left">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.email.errors }" />
+                    <div *ngIf="submitted && usr.email.errors" class="invalid-feedback">
+                        <div *ngIf="usr.email.errors.required">Email is required</div>
+                        <div *ngIf="usr.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-lg-6 float-left">
+                    <label>Phone</label>
+                    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.phone.errors }" />
+                    <div *ngIf="submitted && usr.phone.errors" class="invalid-feedback">
+                        <div *ngIf="usr.phone.errors.required">phone is required</div>
+                        <div *ngIf="usr.phone.errors.minlength || usr.phone.errors.maxlength">phone must be at least 10 numbers</div>
+                        <div *ngIf="usr.phone.errors.pattern">Enter a valid number</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-12 col-lg-6 float-left">
+                  <label>Designation</label>
+                  <input type="text" formControlName="designation" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.designation.errors }" />
+                  <div *ngIf="submitted && usr.designation.errors" class="invalid-feedback">
+                      <div *ngIf="usr.designation.errors.required">designation is required</div>
+                  </div>
+              </div>
+                <div class="form-group col-12 col-lg-12 float-left">
+                  <label>Address</label>
+                  <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.address.errors }" />
+                  <div *ngIf="submitted && usr.address.errors" class="invalid-feedback">
+                      <div *ngIf="usr.address.errors.required">address is required</div>
+                      <div *ngIf="usr.address.errors.minlength">address must be at least 6 characters</div>
+                  </div>
+              </div>
+              <div class="form-group col-12 col-lg-6 float-left">
+                <label>Pincode</label>
+                <input type="text" formControlName="pincode" class="form-control" [ngClass]="{ 'is-invalid': submitted && usr.pincode.errors }" />
+                <div *ngIf="submitted && usr.pincode.errors" class="invalid-feedback">
+                    <div *ngIf="usr.pincode.errors.required">pincode is required</div>
+                    <div *ngIf="usr.pincode.errors.minlength">pincode must be at least 6 characters</div>
+                    <div *ngIf="usr.pincode.errors.pattern">Enter a valid pincode</div>
+
+                </div>
+            </div>
+          </div>
+                <div class="form-group col-12 col-lg-12 float-left">
+                    <button class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
