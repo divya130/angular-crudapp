@@ -14,23 +14,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
- 
-
    baseUrl =environment.url
 
- 
-
-  liggedUserData = new Subject<any>();
-
- 
-
   constructor(private http:HttpClient) {
-
- 
-
   }
 
- 
 
   userAuthentication(userObj) {
     return this.http.post(this.baseUrl + 'login', userObj);
